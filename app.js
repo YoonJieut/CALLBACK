@@ -1,18 +1,16 @@
-function sachick(firstNum, secNum, callback) {
-  return callback(firstNum, secNum);
+function a(fir, sec, callback) {
+  return callback(fir, sec);
 }
-// * callback은 호출일 뿐, return이 필요한지 안 필요한지 확인하기
-const a = sachick(1,2, function(firstNum, secNum){
-  return firstNum + secNum;
+
+let minus = a(function(fir,sec){
+  return fir - sec;
+})
+let divideValue = a(function(fir,sec){
+  return fir/sec;
 })
 
-console.log(a);
-// !로직을 니가 호출할 때 결정해라는 뜻의 callback
-
-const b = sachick(3,2, function(firstNum, secNum){
-  return firstNum - secNum;
-})
-console.log(b);
-// !사칙연산의 부호를 매개변수를 받아서 작성할 순 없다. 대신 callback함수를 통해 사용
-
-
+a(1,2, function(){});
+// ? 매개변수자리에 함수가 들어간다.
+// * a함수는 3 번째 매개변수에 함수가 들어가기로 약속되어있다.
+// * a 함수 선언할 때는 어떤 로직이 될지 모른다.
+// * a 함수 호출할 때는 로직을 결정해야 한다.
